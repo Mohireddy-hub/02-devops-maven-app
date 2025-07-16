@@ -1,8 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/maven-v4_0_0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>in.ashokit</groupId>
   <artifactId>01-Maven-web-app</artifactId>
   <packaging>war</packaging>
@@ -10,23 +12,46 @@
   <name>01-Maven-web-app</name>
 
   <dependencies>
-    <!-- Example web dependency -->
+    <!-- Servlet API for web app -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
-    
-    <!-- Spring dependencies if needed -->
+
+    <!-- Example Spring Web dependency -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
       <version>7.0.0-M6</version>
     </dependency>
+
+    <!-- Example test dependency -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
+    <!-- This decides final WAR file name -->
     <finalName>01-Maven-web-app</finalName>
+
+    <!-- Compiler plugin to fix source/target version -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
+
 </project>
